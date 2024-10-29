@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 class ClientesDelail(generics.RetrieveUpdateDestroyAPIView):
    queryset = Clientes.objects.all()
    serializer_class = ClientesSerializer
-   permission_classes = [IsAuthenticated]
+   permission_classes = [IsAuthenticated] 
 
 
 # Creacion de views de Clientes#(metodos)

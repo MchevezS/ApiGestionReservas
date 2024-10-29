@@ -5,9 +5,12 @@ from .views import Zonas_disponiblesListCreate, Zonas_disponiblesDetail, Zonas_d
 from .views import Estado_reservaListCreate, Estado_reservaDetail, Estado_reservaUpdate, Estado_reservaDelete
 from .views import ReservaListCreate, ReservaDetail, ReservaUpdate, ReservaDelete
 from .views import Cancelar_reservaListCreate, Cancelar_reservaDetail, Cancelar_reservaUpdate, Cancelar_reservaDelete
-# from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
+# Rutas Token
+    path('token/',TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/',TokenRefreshView.as_view(), name='token_refresh'),
 # Rutas para los clientes
     path('clientes/',views.ClientesListCreate.as_view(), name='clientes-create'),
     path('clientes/<int:pk>/',views.ClientesDetail.as_view(), name='clientes-detail'),

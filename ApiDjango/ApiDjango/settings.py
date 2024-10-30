@@ -14,7 +14,9 @@ SECRET_KEY = 'django-insecure-b%jow*p#2$+#ou4fu93+5$7pnjm%^r6ubfledkxvl+-2+t8o7h
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# settinngs.ppy
+# Si no tenemos esta configuracion na vamos a poder hacer solicitudes en el frontend
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -28,7 +30,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework',
     'ApiDjango',
-    'api' 
+    'api',
+    'corsheaders',
     
 ]
 
@@ -36,9 +39,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -11,6 +11,7 @@ urlpatterns = [
 # Rutas Token
     path('token/',TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/',TokenRefreshView.as_view(), name='token_refresh'),
+    
 # Rutas para los clientes
     path('clientes/',views.ClientesListCreate.as_view(), name='clientes-create'),
     path('clientes/<int:pk>/',views.ClientesDetail.as_view(), name='clientes-detail'),
